@@ -3,6 +3,7 @@ package com.parkit.parkingsystem.integration.service;
 import com.parkit.parkingsystem.integration.config.DataBaseTestConfig;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class DataBasePrepareService {
 
@@ -24,6 +25,22 @@ public class DataBasePrepareService {
         }finally {
             dataBaseTestConfig.closeConnection(connection);
         }
+    }
+
+    public boolean tearDown() {
+        Connection con = null;
+        String deleteTickets = "delete FROM ticket";
+        boolean result = false;
+        try {
+            con = dataBaseTestConfig.getConnection();
+            PreparedStatement psTickets = con.prepareStatement(deleteTickets);
+
+            result = psTickets.execute();
+        } catch (Exception ex) {
+        } finally {
+            dataBaseTestConfig.closeConnection(con);
+        }
+        return result;
     }
 
 
