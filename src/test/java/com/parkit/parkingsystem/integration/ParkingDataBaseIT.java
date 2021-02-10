@@ -37,7 +37,6 @@ public class ParkingDataBaseIT {
         ticketDAO = new TicketDAO();
         ticketDAO.dataBaseConfig = dataBaseTestConfig;
         dataBasePrepareService = new DataBasePrepareService();
-        System.out.println("LOVE");
     }
 
     @BeforeEach

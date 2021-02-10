@@ -43,7 +43,6 @@ public class TicketDaoIT {
         this.ticket.setInTime(DateUtils.round(new Date(), Calendar.SECOND));
         ParkingSpot parkingSpot = new ParkingSpot(5, ParkingType.BIKE, true);
         this.ticket.setParkingSpot(parkingSpot);
-        System.out.println("MOT FACILE A RETROUVER");
     }
 
     @AfterAll
